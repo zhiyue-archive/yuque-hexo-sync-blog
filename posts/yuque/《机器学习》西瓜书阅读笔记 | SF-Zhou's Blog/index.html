@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="referrer" content="no-referrer"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>《机器学习》西瓜书阅读笔记 | SF-Zhou&amp;#39;s Blog | 噫吁戏</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script async src="https://www.googletagmanager.com/gtag/js"></script><script>var tracking_ids = 'G-L3VL1KX4HZ,UA-151168174-1'.split(',');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+for(var i=0;i<=tracking_ids.length;i++){
+  gtag('config', tracking_ids[i]);
+}
+
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = 'https://hm.baidu.com/hm.js?' + '584ba9dd631b05e9e41f2c7c71f659eb';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">《机器学习》西瓜书阅读笔记 | SF-Zhou&amp;#39;s Blog</h1><a id="logo" href="/.">噫吁戏</a><p class="description">Just Do IT.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">《机器学习》西瓜书阅读笔记 | SF-Zhou&amp;#39;s Blog</h1><div class="post-meta">Apr 3, 2019<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 3.4k</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-hourglass-half"></i><span class="post-count"> 15</span><span class="post-meta-item-text"> 分钟</span></span></span></div><a class="disqus-comment-count" data-disqus-identifier="posts/yuque/《机器学习》西瓜书阅读笔记 | SF-Zhou's Blog/" href="/posts/yuque/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E8%A5%BF%E7%93%9C%E4%B9%A6%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%20%7C%20SF-Zhou's%20Blog/#disqus_thread"></a><div class="post-content"><h2 id="第-1-章-绪论"><a href="#第-1-章-绪论" class="headerlink" title="第 1 章 绪论"></a>第 1 章 绪论</h2><h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><p><code>机器学习</code>：在计算机上从<code>数据</code>（data）中产生<code>模型</code>（model）的算法，即<code>学习算法</code>（learning algorithm）。</p>
+<p>A computer program is said to learn from experience EEE with respect to some class of tasks TTT and performance measure PPP, if its performance at tasks in TTT, as measured by PPP, improves with experience EEE.</p>
+<p>一般地，令 D={x⃗1,x⃗2,⋯,x⃗m}D = \left \{ \vec {x}_1, \vec {x}_2, \cdots, \vec {x}_m \right \}D={x1​,x2​,⋯,xm​} 表示包含 mmm 个<code>样本</code>（sample）的数据集，每个示例由 ddd 个<code>属性</code>（attribute）描述，则每个样本 x⃗i={xi1;xi2;⋯;xid}\vec x_i = \left \{x_{i1}; x_{i2}; \cdots; x_{id} \right \}xi​={xi1​;xi2​;⋯;xid​} 是 ddd 维样本空间 X\mathcal{X}X 中的一个向量，x⃗i∈X\vec x_i \in \mathcal{X}xi​∈X，其中 xijx_{ij}xij​ 是 x⃗i\vec x_ixi​ 在第 jjj 个属性上的取值，ddd 称为样本 x⃗i\vec x_ixi​ 的<code>维数</code>（dimensionality）。</p>
+<p>属性张成的空间称为<code>样本空间</code>（sample space），每个样本都可在这个空间中找到唯一的坐标位置，因此也把一个样本称为一个<code>特征向量</code>（feature vector）。</p>
+<p>从数据中学得模型的过程称之为<code>学习</code>（learning）或<code>训练</code>（training），学得模型适用于新样本的能力称为<code>泛化</code>（generalization）能力。</p>
+<h3 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h3><p><code>归纳</code>（induction）与<code>演绎</code>（deduction）是科学推理的两大基本手段。前者是从特殊到一般的泛化（generalization）过程，后者是从一般到特殊的特化（specialization）过程。从样例中学习是一个归纳的过程，亦称<code>归纳学习</code>（inductive learning）。</p>
+<p>狭义的归纳学习是从数据中学得<code>概念</code>（concept），最基本的概念学习是布尔概念学习。可以把学习的过程看作一个在所有<code>假设</code>（hypothesis）组成的空间中进行搜索的过程，搜索目标是找到与训练集<code>匹配</code>（fit）的假设。</p>
+<p>假设的表示一旦确定，<code>假设空间</code>（hypothesis space）及其规模大小就确定了。现实问题中通常面临很大的假设空间，但样本训练集是有限的，因此可能有多个假设与训练集一致，即存在一个与训练集一致的假设集合，称之为<code>版本空间</code>（version space）。</p>
+<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><p>机器学习算法在学习过程中对某种类型假设的偏好，称为<code>归纳偏好</code>（inductive bias）。归纳偏好可看作是学习算法在庞大的假设空间中对假设进行选择的价值观。</p>
+<p><code>奥卡姆剃刀</code>（Occam’s Razor）是自然科学研究中常用的原则，即若存在多个假设与观察一致，则选最简单的那个。如无必要，勿增实体。</p>
+<p>但奥卡姆剃刀原则并不平凡，“简单”的评价标准无法量化。事实上归纳偏好对应了学习算法本身所做出的关于“什么样的模型更好”的假设。<code>没有免费的午餐定理</code>（No Free Lunch Theorem，NFL）证明了在真实目标函数 fff 均匀分布的情况下，所有学习算法学得的模型期望性能是一致的。</p>
+<p>脱离实际问题，空谈“什么学习算法更好”毫无意义。</p>
+<h2 id="第-2-章-模型评估与选择"><a href="#第-2-章-模型评估与选择" class="headerlink" title="第 2 章 模型评估与选择"></a>第 2 章 模型评估与选择</h2><h3 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h3><p>学习器的实际输出与样本的真实输出之间的差异称为<code>误差</code>（error），训练集上的误差称为<code>训练误差</code>（training error），新样本上的误差称为<code>泛化误差</code>（generalization error）。</p>
+<p>为了使泛化误差最小化，应该从训练样本中尽可能学出适用于所有潜在样本的“普遍规律”。而将训练样本的特点当作了所有潜在样本的一般性质，导致泛化性能下降的现象，称为<code>过拟合</code>（overfitting），相对地没有充分习得训练样本的一般性质的现象，称为<code>欠拟合</code>（underfitting）。</p>
+<p>现实任务中，存在多种学习算法、不同参数配置，产生不同的模型，需要选择其中合适的模型，该问题称为<code>模型选择</code>（model selection）问题。理想状态下使用泛化误差作为模型选择的评价标准，但泛化误差无法直接获得。</p>
+<h3 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h3><p>通常使用<code>测试集</code>（testing set）来测试学习器对新样本的判别能力，以测试集上的<code>测试误差</code>（testing error）作为泛化误差的近似。通常假设测试样本是从样本真实分布中独立同分布采样而得。</p>
+<p>对于包含 mmm 个样本的数据集 D={(x⃗1,y1),(x⃗2,y2),⋯,(x⃗m,ym)}D = \left \{ (\vec x_1, y_1), (\vec x_2, y_2), \cdots, (\vec x_m, y_m) \right \}D={(x1​,y1​),(x2​,y2​),⋯,(xm​,ym​)}，需要将其分解为训练集 SSS、验证集 VVV 和测试集 TTT，常用的方法有留出法、交叉验证法和<code>自助法</code>（bootstrapping）。</p>
+<p>自助法即从数据集中进行 mmm 次可重复采样，可以选出约 36.8% 的样本作为测试集，在数据集较小时较为有效。</p>
+<p>机器学习常涉及两类参数：一是算法的参数，称为<code>超参数</code>（hyper parameter），一是模型的参数。对超参数进行设定调优的过程称为<code>调参</code>（parameter tuning）。通常使用验证集进行模型选择和调参，使用测试集评估模型的泛化能力。</p>
+<h3 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h3><p>性能度量（performance measure），即为模型泛化能力的评价标准。给定数据集 D={(x⃗1,y1),(x⃗2,y2),⋯,(x⃗m,ym)}D = \left \{ (\vec x_1, y_1), (\vec x_2, y_2), \cdots, (\vec x_m, y_m) \right \}D={(x1​,y1​),(x2​,y2​),⋯,(xm​,ym​)}，其中 yiy_iyi​ 是样本 x⃗i\vec x_ixi​ 的真实标记。</p>
+<p>回归任务常用的性能度量是<code>均方误差</code>（mean squared error）：</p>
+<p>E(f;D)=∫x⃗∼D(f(x⃗)−y)2p(x⃗)dx⃗ E(f; \mathcal{D}) = \int_{\vec x \sim \mathcal D} (f(\vec x) - y)^2 p(\vec {x}) d\vec x E(f;D)=∫x∼D​(f(x)−y)2p(x)dx</p>
+<p>分类任务常用的性能度量较多，常用的错误率：</p>
+<p>E(f;D)=∫x⃗∼DI(f(x⃗)≠y)p(x⃗)dx⃗ E(f; \mathcal{D}) = \int_{\vec x \sim \mathcal D} \mathbb I(f(\vec x) \neq y) p(\vec {x}) d\vec x E(f;D)=∫x∼D​I(f(x)̸​=y)p(x)dx</p>
+<p><code>准确率</code>（percision）和<code>召回率</code>（recall）：</p>
+<p>P=TPTP+FPR=TPTP+FN \begin{aligned} P &amp;= \frac {TP} {TP + FP} \\ R &amp;= \frac {TP} {TP + FN} \end{aligned} PR​=TP+FPTP​=TP+FNTP​​</p>
+<p>预测正例</p>
+<p>预测负例</p>
+<p>真实正例</p>
+<p>TP</p>
+<p>FN</p>
+<p>真实负例</p>
+<p>FP</p>
+<p>TN</p>
+<p>准确率和召回率不可得兼。以准确率作为纵轴、召回率作为横轴，可以得到<code>P-R曲线</code>，曲线中“准确率=召回率”的点成为<code>平衡点</code>（Break-Even Point）。</p>
+<p>准确率和召回率的<code>调和平均</code>（harmonic mean）称为<code>F1</code>度量：</p>
+<p>1F1=12(1P+1R)F1=2PRP+R \begin{aligned} \frac {1} {F1} &amp;= \frac {1} {2} (\frac {1} {P} + \frac {1} {R}) \\ F1 &amp;= \frac {2PR} {P + R} \end{aligned} F11​F1​=21​(P1​+R1​)=P+R2PR​​</p>
+<p>由多组混淆矩阵计算多组准确率和召回率，再求平均值，可得<code>宏准确率</code>（macro-P）和<code>宏召回率</code>（macro-R）；将多组混淆矩阵求平均值，再求准确率和召回率，可得<code>微准确率</code>（micro-P）和<code>微召回率</code>（micro-R）。</p>
+<p><code>ROC</code> 全称受试者工作特征（Receiver Operating Characteristic），该曲线以<code>真正例率</code>（True Positive Rate）为纵轴，以<code>假正例率</code>（False Positive Rate）为横轴：</p>
+<p>TPR=TPTP+FNFPR=FPTN+FP \begin{aligned} TPR &amp;= \frac {TP} {TP + FN} \\ FPR &amp; = \frac {FP} {TN + FP} \end{aligned} TPRFPR​=TP+FNTP​=TN+FPFP​​</p>
+<p>ROC 曲线下的面积称为<code>AUC</code>（Area Under ROC Curve），通常使用 AUC 作为ROC 曲线优劣的判断依据。</p>
+<p>不同类型的错误所造成的后果不同，为权衡不同类型错误所造成的不同损失，可为错误赋予<code>非均等代价</code>（unequal cost）。令 D+D^+D+ 与 D−D^-D− 代表数据集 DDD 中的正例子集和反例子集，则<code>代价敏感</code>（cost-sensitive）错误率为：</p>
+<p>E(f;D;cost)=1m(∑x⃗i∈D+I(f(x⃗i)≠yi)cost01+∑x⃗i∈D−I(f(x⃗i)≠yi)cost10) E(f; D; cost) = \frac {1} {m} \left ( \sum_{\vec x_i \in D^+} \mathbb I (f(\vec x_i) \neq y_i) cost_{01} + \sum_{\vec x_i \in D^-} \mathbb I (f(\vec x_i) \neq y_i) cost_{10} \right ) E(f;D;cost)=m1​⎝⎛​xi​∈D+∑​I(f(xi​)̸​=yi​)cost01​+xi​∈D−∑​I(f(xi​)̸​=yi​)cost10​⎠⎞​</p>
+<h3 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h3><p><code>偏差-方差分解</code>（bias-veriance decomposition）是解释学习算法泛化性能的一种重要工具。对测试样本 x⃗\vec xx，令 yDy_DyD​ 为 x⃗\vec xx 在数据集中的标记，yyy 为 x⃗\vec xx 的真实标记，f(x⃗;D)f(\vec x; D)f(x;D) 为训练集 DDD 上学的模型 fff 在 x⃗\vec xx 上的预测输出。以回归任务为例，学习算法的期望预测为：</p>
+<p>fˉ(x⃗)=ED[f(x⃗;D)] \bar f(\vec x) = \mathbb E_D \left [ f(\vec x; D) \right ] fˉ​(x)=ED​[f(x;D)]</p>
+<p>期望输出与真实标记的差别称为<code>偏差</code>（bias）：</p>
+<p>bias2(x⃗)=(fˉ(x⃗)−y)2 bias^2(\vec x) = \left ( \bar f(\vec x) - y \right )^2 bias2(x)=(fˉ​(x)−y)2</p>
+<p>使用样本数相同的不同训练集产生的<code>方差</code>（variance）为：</p>
+<p>var(x⃗)=ED[(f(x⃗;D)−fˉ(x⃗))2] var(\vec x) = \mathbb E_D \left [ \left (f(\vec x; D) - \bar f(\vec x) \right )^2 \right ] var(x)=ED​[(f(x;D)−fˉ​(x))2]</p>
+<p>噪声为：</p>
+<p>ε2=ED[(yD−y)2] \varepsilon ^2 = \mathbb E_D \left [ (y_D - y)^2 \right ] ε2=ED​[(yD​−y)2]</p>
+<p>假定噪声的期望为零，可得：</p>
+<p>E(f;D)=bias2(x⃗)+var(x⃗)+ε2 E(f; D) = bias^2(\vec x) + var(\vec x) + \varepsilon ^2 E(f;D)=bias2(x)+var(x)+ε2</p>
+<p>即泛化误差可以分解为偏差、方差和噪声之和。偏差和方差间存在<code>偏差-方差窘境</code>（bias-variance dilemma），当学习算法训练不足时，学习器的拟合能力不够强，偏差主导了泛化错误率；当训练程度加深后，学习器的拟合能力足够，方差主导了泛化错误率。</p>
+<h2 id="第-3-章-线性模型"><a href="#第-3-章-线性模型" class="headerlink" title="第 3 章 线性模型"></a>第 3 章 线性模型</h2><h3 id="基本形式"><a href="#基本形式" class="headerlink" title="基本形式"></a>基本形式</h3><p>给定由 ddd 个属性描述的示例 x=(x1;x2;⋯;xd)\boldsymbol x = (x_1; x_2; \cdots; x_d)x=(x1​;x2​;⋯;xd​)，其中 xix_ixi​ 是 x\boldsymbol xx 在第 iii 个属性上的取值，<code>线性模型</code>（linear model）试图学得一个通过属性的线性组合来进行预测的函数：</p>
+<p>f(x)=wTx+b f(\boldsymbol x) = \boldsymbol w^T \boldsymbol x + b f(x)=wTx+b</p>
+<p>其中 w=(w1;w2;⋯;wd)\boldsymbol w = (w_1; w_2; \cdots; w_d)w=(w1​;w2​;⋯;wd​)。</p>
+<p>线性模型形式简单，易于建模，且 w\boldsymbol ww 直观表达了各属性在预测中的重要性，因此线性模型有很好的 <code>可解释性</code>（comprehensibility）。</p>
+<p>在线性模型的基础上可通过引入层级结构或高维映射而得到更为强大的<code>非线性模型</code>（nonlinear model）。</p>
+<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>给定数据集 D={(x1,y1),(x2,y2),⋯,(xm,ym)}D = \{(\boldsymbol x_1, y_1), (\boldsymbol x_2, y_2), \cdots , (\boldsymbol x_m, y_m)\}D={(x1​,y1​),(x2​,y2​),⋯,(xm​,ym​)}，其中 xi=(xi1,xi2,⋯,xid)\boldsymbol x_i = (x_{i1}, x_{i2}, \cdots, x_{id})xi​=(xi1​,xi2​,⋯,xid​)，y∈Ry \in \mathbb Ry∈R，<code>线性回归</code>（linear regression）试图学得一个线性模型以尽可能准确地预测实际输出标记。</p>
+<p>考虑最简单的单属性情形，D={(xi,yi)}i=1mD = \left \{ (x_i, y_i) \right \}_{i=1}^mD={(xi​,yi​)}i=1m​，线性回归试图学得</p>
+<p>f(xi)=wxi+b f(x_i) = wx_i+b f(xi​)=wxi​+b</p>
+<p>以使得 f(xi)≃yif(x_i) \simeq y_if(xi​)≃yi​。使用均方误差作为衡量 f(x)f(x)f(x) 与 yyy 之间差别的性能度量：</p>
+<p>E(w,b)=∑i=1m(f(xi)−yi)2 E_{(w, b)} = \sum_{i=1}^{m} {\left (f(x_i) - y_i \right )^2} E(w,b)​=i=1∑m​(f(xi​)−yi​)2</p>
+<p>则：</p>
+<p>(w∗,b∗)=arg⁡min⁡(w,b)E(w,b) (w^*, b^*) = \underset {(w, b)} {\arg \min} E_{(w, b)} (w∗,b∗)=(w,b)argmin​E(w,b)​</p>
+<p>均方误差有非常好的几何意义，它对应了 <code>欧氏距离</code>（Euclidean distance）。基于均方误差最小化来进行模型求解的方法称为 <code>最小二乘法</code>（least square method）。在线性回归中，最小二乘法试图找到一条直线，使得所有样本到直线上的欧氏距离之和最小。</p>
+<p>E(w,b)E_{(w, b)}E(w,b)​ 是关于 www 和 bbb 的凸函数。对于区间 [a,b][a, b][a,b] 上定义的函数 fff，若它区间中任意两点 x1x_1x1​ 和 x2x_2x2​ 均有 f(x1+x22)≤f(x1)+f(x2)2f(\frac {x_1 + x_2} {2}) \le \frac {f(x_1) + f(x_2)} {2}f(2x1​+x2​​)≤2f(x1​)+f(x2​)​，则称 fff 为区间 [a,b][a, b][a,b] 上的凸函数。对实数集上的函数，可以通过求二阶导数的方式来判断，二阶导数在区间上非负则称为凸函数。</p>
+<p>求解 www 和 bbb 使均方误差最小化的过程，称为线性回归模型的最小二乘 <code>参数估计</code>（parameter estimation）。将 E(w,b)E_{(w, b)}E(w,b)​ 分别对 www 和 bbb 求导，得到：</p>
+<p>∂E(w,b)∂w=2(w∑i=1mxi2−∑i=1m(yi−b)xi)∂E(w,b)∂b=2(mb−∑i=1m(yi−wxi)) \begin {aligned} \frac {\partial E_{(w, b)}} {\partial w} &amp;= 2 \left ( w \sum_{i=1}^{m} x_i^2 - \sum_{i=1}^{m} (y_i - b)x_i \right ) \\ \frac {\partial E_{(w, b)}} {\partial b} &amp;= 2 \left ( mb - \sum_{i=1}^{m} (y_i - wx_i) \right ) \end {aligned} ∂w∂E(w,b)​​∂b∂E(w,b)​​​=2(wi=1∑m​xi2​−i=1∑m​(yi​−b)xi​)=2(mb−i=1∑m​(yi​−wxi​))​</p>
+<p>对 www 和 bbb 的偏导置零可得到 www 和 bbb 最优解的 <code>闭式解</code>（closed-form solution）：</p>
+<p>w=∑i=1mxiyi−mxˉyˉ∑i=1mxi2−mxˉ2b=yˉ−wxˉ \begin {aligned} w &amp;= \frac {\sum_{i=1}^{m}x_i y_i - m \bar x \bar y} {\sum_{i=1}^{m} {x_i^2} - m \bar x^2} \\ b &amp;= \bar y - w \bar x \end {aligned} wb​=∑i=1m​xi2​−mxˉ2∑i=1m​xi​yi​−mxˉyˉ​​=yˉ​−wxˉ​</p>
+<p>更一般的情形，给定数据集 D={(xi,yi)}i=1mD = \left \{ (\boldsymbol x_i, y_i) \right \}_{i=1}^mD={(xi​,yi​)}i=1m​，其中 xi=(xi1,xi2,⋯,xid)\boldsymbol x_i = (x_{i1}, x_{i2}, \cdots, x_{id})xi​=(xi1​,xi2​,⋯,xid​)，y∈Ry \in \mathbb Ry∈R，线性回归试图学得：</p>
+<p>f(xi)=wTxi+b f(\boldsymbol x_i) = \boldsymbol w^T \boldsymbol x_i+b f(xi​)=wTxi​+b</p>
+<p>使得 f(xi)≃yif(\boldsymbol x_i) \simeq y_if(xi​)≃yi​。这称为 <code>多变量线性回归</code>（multivariate linear regression）。</p>
+<p>[未完待续]</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<li>周志华. “机器学习.” 清华大学出版社，北京.</li>
+</ol>
+</div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>zhiyue</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="/posts/yuque/《机器学习》西瓜书阅读笔记 | SF-Zhou's Blog/">http://yixuxi.xyz/posts/yuque/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E8%A5%BF%E7%93%9C%E4%B9%A6%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%20%7C%20SF-Zhou's%20Blog/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN 许可协议。转载请注明出处！</li></ul></div><br><div class="tags"></div><div class="post-nav"><a class="pre" href="/posts/yuque/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20pandas/">如何学习 pandas</a><a class="next" href="/posts/yuque/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">大学课程</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://yixuxi.xyz/posts/yuque/《机器学习》西瓜书阅读笔记 | SF-Zhou's Blog/';
+    this.page.identifier = 'posts/yuque/《机器学习》西瓜书阅读笔记 | SF-Zhou's Blog/';
+    this.page.title = '《机器学习》西瓜书阅读笔记 | SF-Zhou&amp;#39;s Blog';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//zhiyue.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//zhiyue.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://zhiyue.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yixuxi.xyz"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/hello-world_2/">Regularization on GBDT</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/yuque/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">如何学习数据科学</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/yuque/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%20pandas/">如何学习 pandas</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/yuque/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E8%A5%BF%E7%93%9C%E4%B9%A6%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%20%7C%20SF-Zhou's%20Blog/">《机器学习》西瓜书阅读笔记 | SF-Zhou&#39;s Blog</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/yuque/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">大学课程</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/yuque/%E4%BA%8B%E5%AE%9E%E4%B8%8A/">事实上</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/yuque/%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%87%8F%E8%82%A5/">如何科学减肥</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/yuque/%E6%97%A0%E6%A0%87%E9%A2%98/">无标题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/yuque/Deep%20Learning%E9%87%8D%E8%A6%81%E5%8F%91%E5%B1%95%E8%84%89%E7%BB%9C/">Deep Learning重要发展脉络</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/yuque/Elasticsearch%20%E7%9F%A5%E8%AF%86%E7%82%B9%E7%B4%A2%E5%BC%95/">Elasticsearch 知识点索引</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//zhiyue.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">噫吁戏.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
