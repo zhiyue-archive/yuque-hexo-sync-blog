@@ -33,6 +33,7 @@ before_script:
 # - git clone git://github.com/heroicyang/hexo-theme-modernist.git themes/modernist
 
 script:
+- git submodule init
 - git submodule update
 - npm run sync
 - hexo generate
