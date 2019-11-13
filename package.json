@@ -32,8 +32,8 @@
     },
     "yuqueConfig": {
         "baseUrl": "https://www.yuque.com/api/v2",
-        "login": "p_z",
-        "repo": "how_to_x"
+        "login": "zhiyue",
+        "repo": "yixuxi"
     },
     "devDependencies": {
         "yuque-hexo": "^1.6.2"
